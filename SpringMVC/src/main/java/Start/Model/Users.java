@@ -1,0 +1,69 @@
+package Start.Model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+ 
+@Entity
+public class Users {
+ 
+    private Integer id;
+    private String username;
+    private String password;
+    private String nickname;
+    
+ 
+    public Users() {
+    }
+ 
+    public Users(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+    public Users(String username, String password,String nickname) {
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+    }
+ 
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+ 
+    @Column(name = "id", unique = true, nullable = false)
+    public Integer getId() {
+        return this.id;
+    }
+ 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+ 
+    @Column(name = "username", length = 30)
+    public String getUsername() {
+        return this.username;
+    }
+ 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+ 
+    @Column(name = "password", length = 32)
+    public String getPassword() {
+        return this.password;
+    }
+ 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    @Column(name = "nickname", length = 30)
+    public String getNickname() {
+        return this.nickname;
+    }
+ 
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+}
